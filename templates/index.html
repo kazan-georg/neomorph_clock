@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Аналоговые часы</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/font-awesome.min.css')}}"/>
+</head>
+<body>
+<div>
+
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+    </div>
+
+    <div class="toggle-theme" id="toggle-theme">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label">
+            <i class="fa fa-sun-o" aria-hidden="true"></i>
+            <i class="fa fa-moon-o" aria-hidden="true"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+
+</div>
+<script src="{{ url_for('static', filename='js/index.js') }}"> </script>
+</body>
+</html>

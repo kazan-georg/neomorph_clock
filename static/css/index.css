@@ -1,0 +1,166 @@
+:root {
+  --colorArrow: #3f3f3f;
+  --colorCheckbox: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f0edf1;
+}
+
+body.dark {
+    background: #323233;
+}
+
+.clock {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("/static/images/clock.png");
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 0 -15px 15px rgba(255,255,255,0.05),
+    inset 0 -15px 15px rgba(255,255,255,0.05),
+    0 15px 15px rgba(0,0,0,0.3),
+    inset 0 15px 15px rgba(0,0,0,0.3);
+}
+
+.clock:before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: var(--colorArrow);
+    border-radius: 50%;
+    z-index: 10000;
+}
+
+.clock .hour,
+.clock .min,
+.clock .sec {
+    position: absolute;
+}
+
+.clock .hour, .hr {
+    width: 160px;
+    height: 160px;
+}
+
+.clock .min, .mn {
+    width: 190px;
+    height: 190px;
+}
+
+.clock .sec, .sc {
+    width: 230px;
+    height: 230px;
+}
+
+.hr, .mn, .sc {
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    position: absolute;
+    border-radius: 50%;
+}
+
+.hr:before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 80px;
+    background: #ff105e;
+    z-index: 10;
+    border-radius: 6px 6px 0 0;
+}
+
+.mn:before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 90px;
+    background: var(--colorArrow);
+    z-index: 11;
+    border-radius: 6px 6px 0 0;
+}
+
+.sc:before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background: var(--colorArrow);
+    z-index: 12;
+    border-radius: 6px 6px 0 0;
+}
+
+body,
+.clock:before,
+.mn:before,
+.sc:before {
+    transition: background 0.2s linear;
+}
+
+/*/////// Переключатель ////////*/
+.toggle-theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: 50px;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.label {
+    background-color: var(--colorArrow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    height: 26px;
+    width: 50px;
+    position: relative;
+    padding: 5px;
+}
+
+.ball {
+    background-color: var(--colorCheckbox);
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s linear;
+}
+
+.label {
+     transition: background-color 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+    transform: translate(24px);
+}
+
+.fa.fa-sun-o {
+    color: #091921;
+}
+
+.fa.fa-moon-o {
+    color: #fff;
+}
